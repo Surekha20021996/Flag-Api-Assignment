@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Info</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(to right, #1f4037, #99f2c8);
+            margin: 0;
+            padding: 20px;
+            color: #fff;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #fff;
+            font-size: 2.5rem;
+        }
+        .search-bar {
+            padding: 12px;
+            width: 300px;
+            border: 1px solid #ced4da;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .search-bar:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 8px rgba(128, 189, 255, 0.5);
+        }
+        .country-info-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+        }
+        .country-info {
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            background-color: #ffffff;
+            color: #343a40;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 15px;
+            transform: scale(0);
+            animation: fadeIn 0.5s forwards;
+        }
+        .country-info:nth-child(even) {
+            animation-delay: 0.2s;
+        }
+        .country-info:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+        .country-info img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #dee2e6;
+            margin-bottom: 10px;
+        }
+        .country-info h2 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        .country-info a {
+            display: block;
+            margin-top: 10px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .country-info a:hover {
+            text-decoration: underline;
+        }
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-top: 16px solid #007bff;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes fadeIn {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Country Information</h1>
+    <input type="text" id="searchBar" class="search-bar" placeholder="Search for a country...">
+    <div class="loader" id="loader"></div>
+    <div class="country-info-container" id="countryInfoContainer">
+      
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
